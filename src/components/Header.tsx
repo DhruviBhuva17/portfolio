@@ -8,15 +8,15 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showThemeMenu, setShowThemeMenu] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('rose'); // Start with rose theme
+  const [currentTheme, setCurrentTheme] = useState('ocean'); // Start with ocean theme
 
   const themes = [
     { id: 'default', name: 'Default', primary: '#030213', secondary: '#ececf0' },
-    { id: 'ocean', name: 'Ocean', primary: '#0ea5e9', secondary: '#0369a1' },
+    { id: 'ocean', name: 'Ocean', primary: '#0284c7', secondary: '#075985' },
     { id: 'forest', name: 'Forest', primary: '#059669', secondary: '#065f46' },
-    { id: 'sunset', name: 'Sunset', primary: '#f97316', secondary: '#ea580c' },
+    { id: 'sunset', name: 'Sunset', primary: '#ea580c', secondary: '#c2410c' },
     { id: 'purple', name: 'Purple', primary: '#9333ea', secondary: '#7c3aed' },
-    { id: 'rose', name: 'Rose', primary: '#e11d48', secondary: '#be123c' }
+    { id: 'rose', name: 'Rose', primary: '#be123c', secondary: '#9f1239' }
   ];
 
   useEffect(() => {

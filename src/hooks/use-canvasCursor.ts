@@ -112,9 +112,30 @@ const useCanvasCursor = () => {
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = 'lighter';
-      ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',50%,50%,0.2)';
+      const currentPrimary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#0ea5e9';
+      const currentSecondary = getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim() || '#0369a1';
+
+      if (ctx.themePrimary !== currentPrimary || ctx.themeSecondary !== currentSecondary) {
+        ctx.themePrimary = currentPrimary;
+        ctx.themeSecondary = currentSecondary;
+        const hexToRgb = (hex) => {
+          var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+          return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+          } : { r: 14, g: 165, b: 233 };
+        };
+        ctx.rgbPrimary = hexToRgb(ctx.themePrimary);
+        ctx.rgbSecondary = hexToRgb(ctx.themeSecondary);
+      }
       ctx.lineWidth = 1;
       for (var e, t = 0; t < E.trails; t++) {
+        const ratio = t / Math.max(1, E.trails - 1);
+        const r = Math.round(ctx.rgbPrimary.r * (1 - ratio) + ctx.rgbSecondary.r * ratio);
+        const g = Math.round(ctx.rgbPrimary.g * (1 - ratio) + ctx.rgbSecondary.g * ratio);
+        const b = Math.round(ctx.rgbPrimary.b * (1 - ratio) + ctx.rgbSecondary.b * ratio);
+        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.2)`;
         (e = lines[t]).update();
         e.draw();
       }

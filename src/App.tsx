@@ -14,13 +14,13 @@ import { Button } from './components/ui/button';
 
 export default function App() {
   useEffect(() => {
-    // Set dark mode and rose theme by default
+    // Set dark mode and ocean theme by default
     document.documentElement.classList.add('dark');
     
-    // Set rose theme
+    // Set ocean theme
     const root = document.documentElement;
-    root.style.setProperty('--primary', '#e11d48');
-    root.style.setProperty('--secondary', '#be123c');
+    root.style.setProperty('--primary', '#0284c7');
+    root.style.setProperty('--secondary', '#075985');
     
     // Smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -169,7 +169,7 @@ export default function App() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
               >
-                <Heart className="h-3 w-3 text-red-500" />
+                <Heart className="h-3 w-3 text-sky-500" />
               </motion.span>
               {' '}by Dhruvi and AI
             </motion.p>

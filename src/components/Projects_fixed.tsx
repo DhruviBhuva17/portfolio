@@ -25,11 +25,11 @@ export function Projects() {
 
   const getThumbnail = (categories: string[], icon: ReactNode) => {
     const gradients: Record<string, string> = {
-      'Machine Learning': 'from-cyan-600/30 via-blue-500/20 to-teal-600/30',
-      'Full-Stack': 'from-emerald-600/30 via-green-500/20 to-lime-600/30',
-      'Frontend': 'from-orange-600/30 via-amber-500/20 to-yellow-600/30',
+      'AI/ML': 'from-cyan-600/30 via-blue-500/20 to-teal-600/30',
+      'Full Stack': 'from-emerald-600/30 via-green-500/20 to-lime-600/30',
+      'Web Development': 'from-orange-600/30 via-amber-500/20 to-yellow-600/30',
       'Backend': 'from-sky-600/30 via-blue-500/20 to-cyan-600/30',
-
+      'Data Science': 'from-purple-600/30 via-fuchsia-500/20 to-pink-600/30',
     };
     const gradient = gradients[categories[0]] || 'from-slate-600/30 via-gray-500/20 to-zinc-600/30';
     return (
@@ -73,7 +73,7 @@ export function Projects() {
         'Supports voice and intelligent assistant extensions'
       ],
 
-      categories: ['AI', 'Backend', 'Full-Stack'],
+      categories: ['AI/ML', 'Full Stack'],
 
       status: 'Completed',
 
@@ -112,7 +112,7 @@ export function Projects() {
         'Scalable full-stack architecture for future enhancements'
       ],
 
-      categories: ['Full-Stack', 'Web Development'],
+      categories: ['Full Stack'],
 
       status: 'Completed',
 
@@ -153,7 +153,7 @@ export function Projects() {
         'Structured logging and error handling for API interactions'
       ],
 
-      categories: ['AI', 'Python', 'Web Development'],
+      categories: ['AI/ML', 'Full Stack'],
 
       status: 'Completed',
 
@@ -195,7 +195,7 @@ export function Projects() {
         'Clean full-stack design with extensible project structure'
       ],
 
-      categories: ['Full-Stack', 'Travel Tech', 'Web Development'],
+      categories: ['Full Stack'],
 
       status: 'Completed',
 
@@ -236,7 +236,7 @@ export function Projects() {
         'Clean and intuitive interface for collaborative finance management'
       ],
 
-      categories: ['AI', 'Finance', 'Full-Stack'],
+      categories: ['AI/ML', 'Full Stack'],
 
       status: 'Completed',
 
@@ -279,7 +279,7 @@ export function Projects() {
         'Modern responsive dashboard with PostgreSQL and Prisma-backed data management'
       ],
 
-      categories: ['AI', 'Career Tech', 'Full-Stack'],
+      categories: ['AI/ML', 'Full Stack'],
 
       status: 'Completed',
 
@@ -321,7 +321,7 @@ export function Projects() {
         'Provides a scalable foundation for future analytics and visualization enhancements'
       ],
 
-      categories: ['Machine Learning', 'Data Science', 'Web Development'],
+      categories: ['AI/ML'],
 
       status: 'Completed',
 
@@ -362,7 +362,7 @@ export function Projects() {
         'Provides actionable insights for social media strategy and decision-making'
       ],
 
-      categories: ['Data Science', 'Machine Learning', 'Analytics'],
+      categories: ['AI/ML'],
 
       status: 'Completed',
 
@@ -374,7 +374,7 @@ export function Projects() {
     }
   ];
 
-  const categories = ['All', 'AI/ML', 'Full-Stack', 'Real-time'];
+  const categories = ['All', 'Full Stack', 'AI/ML'];
 
   const filteredProjects = activeCategory === 'All'
     ? projects
@@ -383,8 +383,9 @@ export function Projects() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'AI/ML': return <Bot className="h-4 w-4" />;
-      case 'Full-Stack': return <Globe className="h-4 w-4" />;
-
+      case 'Full Stack': return <Globe className="h-4 w-4" />;
+      case 'Web Development': return <Code className="h-4 w-4" />;
+      case 'Data Science': return <Sparkles className="h-4 w-4" />;
       default: return <Code className="h-4 w-4" />;
     }
   };
